@@ -95,6 +95,7 @@ mvn clean install
 
 ### Run (local)
 ```bash
+docker-compose up -d postgres
 mvn spring-boot:run
 ```
 

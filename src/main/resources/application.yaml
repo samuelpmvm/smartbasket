@@ -1,3 +1,30 @@
 spring:
   application:
     name: smartbasket
+
+# Database configuration
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:smartbasket_db}
+    username: ${DB_USER:smartbasket}
+    password: ${DB_PASSWORD:smartbasket}
+    jpa:
+      hibernate:
+        ddl-auto: update
+
+# Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /smartbasket
+
+# Management Endpoints
+management:
+  endpoint:
+    refresh:
+      access: read_only
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,metrics
